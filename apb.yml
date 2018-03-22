@@ -1,0 +1,30 @@
+---
+
+version: 1.0
+name: helm-runner-apb
+description: Deploy a chart from a helm repo
+bindable: "False"
+async: optional
+metadata:
+  displayName: Helm Chart Runner
+plans:
+  - name: default
+    description: Deploy a helm chart
+    free: "True"
+    metadata: {}
+    parameters:
+      - name: repo
+        title: Helm Chart Repository URL
+        default: https://kubernetes-charts.storage.googleapis.com
+        type: string
+        required: "True"
+      - name: chart
+        title: Helm Chart
+        default: redis
+        type: string
+        required: "True"
+      - name: values
+        title: Values
+        type: string
+        displayType: textarea
+        required: "False"
