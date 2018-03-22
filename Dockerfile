@@ -18,10 +18,10 @@ cGU6IHN0cmluZwogICAgICAgIGRpc3BsYXlUeXBlOiB0ZXh0YXJlYQogICAgICAgIHJlcXVpcmVk\
 OiAiRmFsc2UiCg=="
 
 RUN yum install -y jq && yum clean all
+RUN curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 
 USER apb
 
-COPY helm /bin/helm
 COPY entrypoint.sh /bin/entrypoint.sh
 
 ENTRYPOINT ["entrypoint.sh"]
